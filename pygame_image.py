@@ -27,7 +27,8 @@ def main():
         if key_lst[pg.K_LEFT]:
             img_rct.move_ip((-1, 0))
         if key_lst[pg.K_RIGHT]:
-            img_rct.move_ip((1, 0))
+            img_rct.move_ip((2, 0))
+        img_rct.move_ip((-1, 0))
         x = -(tmr%3200)
         screen.blit(bg_img, [x, 0])
         screen.blit(bj_img, [x+1600, 0])
