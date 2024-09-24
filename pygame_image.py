@@ -13,6 +13,8 @@ def main():
     kt_img = pg.image.load("fig/3.png")
     kt_img = pg.transform.flip(kt_img, True, False)
     bj_img = pg.transform.flip(bg_img, True, False)
+    img_rct = kt_img.get_rect()
+    img_rct.center = 300, 200
     tmr = 0
     while True:
         for event in pg.event.get():
@@ -22,7 +24,7 @@ def main():
         screen.blit(bj_img, [x+1600, 0])
         screen.blit(bg_img, [x+3200, 0])
         screen.blit(bj_img, [x+4800, 0])
-        screen.blit(kt_img, [300, 200])
+        screen.blit(kt_img, img_rct)
         pg.display.update()
         tmr += 1        
         clock.tick(800)
