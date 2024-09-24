@@ -16,19 +16,32 @@ def main():
     img_rct = kt_img.get_rect()
     img_rct.center = 300, 200
     tmr = 0
+    a = 0
+    b = 0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
         key_lst = pg.key.get_pressed()
+        a = 0
+        b = 0
+        # if key_lst[pg.K_UP]:
+        #     img_rct.move_ip((0, -1))
+        # if key_lst[pg.K_DOWN]:
+        #     img_rct.move_ip((0, 1))
+        # if key_lst[pg.K_LEFT]:
+        #     img_rct.move_ip((-1, 0))
+        # if key_lst[pg.K_RIGHT]:
+        #     img_rct.move_ip((2, 0))
+        # img_rct.move_ip((-1, 0))
         if key_lst[pg.K_UP]:
-            img_rct.move_ip((0, -1))
+            a = -1
         if key_lst[pg.K_DOWN]:
-            img_rct.move_ip((0, 1))
+            a = 1
         if key_lst[pg.K_LEFT]:
-            img_rct.move_ip((-1, 0))
+            b = -1
         if key_lst[pg.K_RIGHT]:
-            img_rct.move_ip((2, 0))
-        img_rct.move_ip((-1, 0))
+            b = 2
+        img_rct.move_ip((-1+b, 0+a))
         x = -(tmr%3200)
         screen.blit(bg_img, [x, 0])
         screen.blit(bj_img, [x+1600, 0])
@@ -37,7 +50,7 @@ def main():
         screen.blit(kt_img, img_rct)
         pg.display.update()
         tmr += 1        
-        clock.tick(800)
+        clock.tick(200)
 
 
 if __name__ == "__main__":
