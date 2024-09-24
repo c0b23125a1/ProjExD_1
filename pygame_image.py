@@ -14,12 +14,20 @@ def main():
     kt_img = pg.transform.flip(kt_img, True, False)
     bj_img = pg.transform.flip(bg_img, True, False)
     img_rct = kt_img.get_rect()
-    key_lst = pg.key.get_pressed()
     img_rct.center = 300, 200
     tmr = 0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
+        key_lst = pg.key.get_pressed()
+        if key_lst[pg.K_UP]:
+            img_rct.move_ip((0, -1))
+        if key_lst[pg.K_DOWN]:
+            img_rct.move_ip((0, 1))
+        if key_lst[pg.K_LEFT]:
+            img_rct.move_ip((-1, 0))
+        if key_lst[pg.K_RIGHT]:
+            img_rct.move_ip((1, 0))
         x = -(tmr%3200)
         screen.blit(bg_img, [x, 0])
         screen.blit(bj_img, [x+1600, 0])
