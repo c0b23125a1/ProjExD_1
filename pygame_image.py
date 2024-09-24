@@ -14,6 +14,7 @@ def main():
     kt_img = pg.transform.flip(kt_img, True, False)
     bj_img = pg.transform.flip(bg_img, True, False)
     img_rct = kt_img.get_rect()
+    key_lst = pg.key.get_pressed()
     img_rct.center = 300, 200
     tmr = 0
     while True:
